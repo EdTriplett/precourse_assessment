@@ -12,3 +12,5 @@ var bigPal = function() {
   return max;
 }
 
+/* The original version included the extra, unnecessary steps of adding each found palindrome
+to an array and then returning the largest with Math.max */
