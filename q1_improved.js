@@ -9,11 +9,3 @@ var bigPal = function() {
   }
   return max;
 }
-
-/* The original version included the extra, unnecessary steps of adding each found palindrome
-to an array and then returning the largest with Math.max instead of just storing the highest
-in a variable.  It also included an isPal function to test for palindromes, instead of just 
-including the 'code definition' of a palindrome in the predicate of the if statement.  
-
--ed.2 - and an unnecessary Else block.  
-*/
