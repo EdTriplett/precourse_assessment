@@ -1,0 +1,87 @@
+<html>
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <style>
+    .red {
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root"></div>
+
+  <script>
+    const users = [
+      {
+        name: 'Vlad',
+        age: 26,
+        email: 'example_vlad@email.com',
+        phone: 123123123
+      }, {
+        name: 'Bob',
+        age: 32,
+        email: 'example_bob@email.com',
+        phone: 123123124
+      }, {
+        name: 'Alice',
+        age: 22,
+        email: 'example_alice@email.com',
+        phone: 123123125
+      }, {
+        name: 'Jiggly Puff',
+        age: 99,
+        email: 'example_puff@email.com',
+        phone: 123123126
+      }, {
+        name: 'NaN',
+        age: 0,
+        email: 'example_nan@email.com',
+        phone: 0
+      }
+    ];
+
+    // Your code here...
+    let tcap = '<caption>Users</caption>';
+
+    let ttop = '<thead><tr>';
+    
+    for (let t = 0; t < Object.keys(users[0]).length; t++) {
+      tcap += "<colgroup></colgroup>";
+      ttop += "<th scope=\"col\">" + Object.keys(users[0])[t].toUpperCase() + "</th>";
+    }
+    
+    ttop += "</tr></thead>"
+
+
+    let tbod = "<tbody>";
+    for (let r = 0; r < users.length; r++) {
+      tbod += '<tr>';
+      for (let c = 0; c < Object.keys(users[r]).length; c++) {
+        tbod += '<td>' + users[r][Object.keys(users[r])[c]] + "</td>";
+      }
+      tbod += "</tr>;" 
+    }
+    tbod += "</tbody>"
+
+    let ttotal = "<table border=1>" + tcap + ttop + tbod + "</table>";
+    
+    $("#root").append(ttotal);
+    
+    $("head").append("<style> .clicked { background-color: red; }</style>");
+
+
+    $("table").on('click', "td", function() {
+      $("table tr").removeClass("clicked");
+      $("table colgroup").removeClass("clicked");
+      $(this).parent().addClass("clicked");
+      $("colgroup").eq($(this).index()).addClass("clicked");
+    });
+
+  
+  </script>
+</body>
+
+</html>
